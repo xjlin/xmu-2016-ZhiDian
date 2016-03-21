@@ -1,0 +1,23 @@
+html, body {
+  margin: 0;
+  max-height: 100%; }
+
+body {
+  margin-top: 5px; }
+
+#camera, #outputCanvas {
+  width: 350px;
+  height: 300px;
+  border: 1px #000 solid;
+  margin: auto;
+  display: block;
+  margin-bottom: 10px;
+  box-shadow: 4px 4px #ccc; }
+
+#effects {
+  background: #fff;
+  border: 0px;
+  width: 150px;
+  display: block;
+  margin: auto;
+  margin-top: 15px; }
