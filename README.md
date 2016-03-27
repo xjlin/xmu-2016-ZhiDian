@@ -10,3 +10,5 @@
 
 
 [效果展示](https://thefool32.github.io/xmu-2016-ZhiDian)
+
+Chrome 下最好打开设备模式
