@@ -2,10 +2,6 @@ imageProcess.doNothing = function(imgData) {
   return imgData;
 }
 
-imageProcess.distort = function(imgData) {
-
-}
-
 imageProcess.gray = function(imgData) {
   var data = imgData.data;
   for (var i = 0;i < data.length; i += 4) {
@@ -59,6 +55,34 @@ imageProcess.sketch = function(imgData) {
     data[4*i]   = a+a*b/(256-b);
     data[4*i+1] = data[4*i];
     data[4*i+2] = data[4*i];
+  }
+  return imgData;
+}
+
+imageProcess.bw = function(imgData) {
+  var data = imgData.data;
+  for (var i = 0;i < data.length; i += 4) {
+    var g = (data[i]*19595 + data[i+1]*38469 + data[i+2]*7472) >> 16;
+    g = (g >= 100) ? 255 : 0;
+    data[i] = g;
+    data[i+1] = g;
+    data[i+2] = g;
+  }
+  return imgData;
+}
+
+imageProcess.emboss = function(imgData) {
+  var data = imgData.data;
+  var pr = data[0], pg = data[1], pb = data[2];
+  for (var i = 4;i < data.length; i += 4) {
+    var r = data[i] - pr + 128;
+    var g = data[i+1] - pg + 128;
+    var b = data[i+2] - pb + 128;
+    var c = r * 0.3 + g * 0.59 + b * 0.11;
+    pr = data[i];
+    pg = data[i+1];
+    pb = data[i+2];
+    data[i] = data[i+1] = data[i+2] = c;
   }
   return imgData;
 }
