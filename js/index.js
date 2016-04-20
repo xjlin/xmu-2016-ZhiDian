@@ -1,6 +1,6 @@
-// Put event listeners into place
+var tempCanvas;
+
 window.addEventListener("DOMContentLoaded", function() {
-  // Grab elements, create settings, etc.
   var canvas = document.getElementById("outputCanvas"),
   context = canvas.getContext("2d"),
   video = document.getElementById("camera"),
@@ -29,7 +29,7 @@ window.addEventListener("DOMContentLoaded", function() {
   var effectsSelect = document.getElementById('effects');
 
   var WIDTH = 350, HEIGHT = 300;
-  var tempCanvas = document.createElement('canvas');
+  tempCanvas = document.createElement('canvas');
   tempCanvas.height = HEIGHT;
   tempCanvas.width = WIDTH;
   var tempContext = tempCanvas.getContext('2d');
